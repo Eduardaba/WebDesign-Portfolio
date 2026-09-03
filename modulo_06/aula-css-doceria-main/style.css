@@ -1,0 +1,174 @@
+/*variaveis css (:root)*/
+:root{
+    --cor-principal:hsl(0, 83%, 21%);
+    --cor-segundaria:lch(84.97% 14.31 3.52);
+    --cor-texto:hsl(9, 30%, 5%);
+    --cor-fundo:hsl(324, 100%, 94%);
+    --cor-fundo-claro:#e9cad2;
+    --cor-branco:#f5cfdc;
+    --fonte-padrao:"Segoe UI", arial,sans-serif;
+    --espacamento-secao:60px 40px;
+    --borda-arrendondada:12px;
+}
+/* seleção,estilização e herança*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--fonte-padrao);
+    color:var(--cor-texto);
+    background-color:var(--cor-fundo);
+    line-height:1.6;
+}
+h1, h2, h3{
+    color:var(--cor-principal);
+    margin-bottom:10px;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+/*cabeçalho (flexbox)*/
+.cabecalho{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cor-branco);
+    box-shadow: 0 2px 6px rgba(0,0,0,0,08);
+}
+.logo{
+    font-size: 1.5rem;
+    font-weight:bold;
+    color: var(--cor-principal);
+}
+.menu{
+    display: flex;
+    gap: 25px;
+}
+/*Pseudo-classe : hover + transição*/
+.menu a{
+    transition: color 0.3s ease;
+}
+.menu a:hover{
+    color:var(--cor-segundaria);
+}
+/* Hero (banner principal)*/
+.hero{
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg,var(--cor-fundo-claro), var(--cor-fundo));
+}
+.hero h1{
+    font-size: 2.2rem;
+}
+.botao{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 120x 28px;
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    border-radius: 30px;
+    transition: transform 0.3 ease, background-color 0.3 ease;
+}
+/* Transição no hover do botão*/
+.botao:hover{
+    background-color:var(--cor-segundaria);
+    transform: scale(1.05);
+}
+/* PRODUTOS (Grid)*/
+.produtos{
+    padding: var(--espacamento-secao);
+    text-align: center;
+}
+.grid-produtos{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);/* 4 colunas em telas grandes*/
+    gap: 25px;
+    margin-top: 30px;
+}
+.card{
+    background-color: var(--cor-branco);
+    border-radius: var(--borda-arrendondada);
+    padding: 20px;
+    box-shadow: 0 4x 10px rgba(0,0,0,0,08);
+    transition: transform 0.3 ease, box-shadow 0.3 ease;
+
+    /*ANIMAÇÃO: oa cards aparecem "subindo" ao carregar a página*/
+    animation: aparecer 0.6 ease-in-out;
+}
+.card.hover{
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0,15);
+}
+.preco{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color:var(--cor-principal);
+}
+/* Definição da ANIMAÇÃO usada acima*/
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* SOBRE (Flexbox)*/
+.sobre{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: var(--espacamento-secao);
+    background-color: var(--cor-fundo-claro);
+}
+.sobre-conteudo{
+    flex: 2;/* ocupa mais espaço que a imagem*/
+}
+.sobre-imagem{
+    flex: 1;
+    font-size: 6rem;
+    text-align: center;
+}
+/*DEPOIMENTOS (Flexbox)*/
+.depoimentos{
+    padding: var(--espacamento-secao);
+    text-align: center;
+}
+.lista-depoimentos{
+    display: flex;
+    flex-wrap: wrap;/* quebra linha em telas menores*/
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+.depoimento{
+    flex: 1 1 250px;/* cresce, encolhe, base de 250px -> reponsivo */
+    background-color: var(--cor-branco);
+    padding: 20px;
+    border-radius: var(--borda-arrendondada);
+    font-style: italic;
+}
+.depoimento cite{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--cor-principal);
+}
+/*RODAPÉ*/
+.rodape{
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+.copyright{
+    margin-top: 15px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
