@@ -1,0 +1,69 @@
+/* Reset básico */
+* { /* Seleciona absolutamente todos os elementos da página */
+  box-sizing: border-box; /* Inclui a bordinha e o espaçamento interno no cálculo do tamanho total do elemento, evitando que ele "quebre" o layout */
+  margin: 0; /* Remove a margem externa padrão que os navegadores colocam nos elementos */
+  padding: 0; /* Remove o espaçamento interno padrão que os navegadores colocam nos elementos */
+} /* Fecha o bloco de regras do seletor universal */
+
+/* Tipografia global */
+body { /* Seleciona o corpo inteiro da página */
+  font-family: 'Inter', Arial, sans-serif; /* Define a fonte do texto: tenta carregar a 'Inter'; se não conseguir, usa Arial; se não tiver, usa qualquer fonte sem serifa do sistema */
+  color: #2c3e50; /* Aplica uma cor cinza-escura azulada para todos os textos da página */
+  line-height: 1.6; /* Define o espaçamento entre as linhas do texto, deixando a leitura mais confortável (1.6 vezes o tamanho da fonte) */
+} /* Fecha o bloco de regras do body */
+
+.topo { /* Seleciona o elemento que tem a classe "topo" (geralmente o cabeçalho) */
+  background: linear-gradient(90deg, #0891b2, #22d3ee); /* Cria um fundo com efeito degradê da esquerda para a direita, indo do azul-turquesa escuro para o claro */
+  color: #fff; /* Define a cor do texto dentro do topo como branca */
+  padding: 1rem 2rem; /* Adiciona espaçamento interno: 1rem (16px) em cima/baixo e 2rem (32px) nas laterais */
+  display: flex; /* Ativa o modo Flexbox, transformando o topo em um contêiner flexível para alinhar seus elementos filhos */
+  justify-content: space-between; /* Distribui os elementos filhos, empurrando-os para as extremidades (um na ponta esquerda, outro na direita) */
+  align-items: center; /* Alinha os elementos filhos verticalmente bem no centro do topo */
+  position: sticky; /* Faz o topo ficar "colante": ele rola com a página até atingir o limite definido */
+  top: 0; /* Define que o limite para fixar é exatamente no topo da tela (0 pixels do topo) */
+} /* Fecha o bloco de regras da classe .topo */
+
+.card img { /* Seleciona todas as imagens que estão dentro de um elemento com a classe "card" */
+  width: 100%; /* Força a imagem a ocupar 100% da largura disponível no contêiner do card */
+  height: 200px; /* Define uma altura fixa de 200 pixels para a imagem */
+  object-fit: cover; /* Ajusta a imagem para preencher o espaço dos 200px sem ficar distorcida ou esticada, cortando as sobras se necessário */
+} /* Fecha esta primeira regra das imagens do card */
+
+.menu a { /* Seleciona todos os links (tags <a>) que estão dentro da classe "menu" */
+  color: #fff; /* Define a cor do texto dos links como branca */
+  margin-left: 1.5rem; /* Cria um espaçamento de 1.5rem (24px) apenas do lado esquerdo de cada link para separá-los */
+  text-decoration: none; /* Remove aquela linha sublinhada padrão que todo link tem */
+} /* Fecha o bloco de regras dos links do menu */
+
+section { /* Seleciona todas as tags <section> da página */
+  padding: 3rem 2rem; /* Define um espaçamento interno grande: 3rem (48px) em cima/baixo e 2rem (32px) nas laterais */
+  max-width: 1100px; /* Limita a largura máxima da seção em 1100 pixels, impedindo que ela estique demais em telas gigantes */
+  margin: 0 auto; /* Zera a margem em cima/baixo e calcula automaticamente as margens laterais, centralizando a seção na tela */
+} /* Fecha o bloco de regras das seções */
+
+.card { /* Seleciona os elementos com a classe "card" */
+  background: #fff; /* Define a cor de fundo do card como branca */
+  border-radius: 12px; /* Arredonda os quatro cantos do card com um raio de 12 pixels */
+  padding: 1.5rem; /* Adiciona 1.5rem (24px) de espaçamento interno para o conteúdo não encostar nas bordas */
+  box-shadow: 0 4px 12px rgba(0,0,0,.08); /* Aplica uma sombra leve e moderna embaixo e nas laterais do card */
+} /* Fecha o bloco de regras da classe .card */
+
+.card img { /* Seleciona novamente as imagens do card (esta regra está duplicada no seu código e vai sobrescrever/somar com a anterior) */
+  max-width: 100%; /* Garante que a imagem nunca ultrapasse o tamanho máximo do card */
+  height: auto; /* Deixa a altura proporcional à largura (sobrescreve os 200px fixos da regra anterior se esta rodar por último) */
+  border-radius: 12px; /* Arredonda também os cantos da imagem em 12 pixels para combinar com o design do card */
+  object-fit: cover; /* Reafirma que a imagem deve se ajustar sem distorcer */
+} /* Fecha a segunda regra das imagens do card */
+
+.rodape { /* Seleciona o elemento com a classe "rodape" */
+  background: #0f172a; /* Define um fundo azul-escuro quase preto para o rodapé */
+  color: #cbd5e1; /* Define a cor do texto do rodapé como um cinza-claro azulado */
+  text-align: center; /* Centraliza todo o texto e elementos internos horizontalmente */
+  padding: 2rem; /* Adiciona um espaçamento interno de 2rem (32px) em todos os lados */
+} /* Fecha o bloco de regras da classe .rodape */
+
+@media (max-width: 600px) { /* Inicia uma regra de mídia (Media Query): tudo aqui dentro só funciona em telas de até 600px de largura (celulares) */
+  .cards { flex-direction: column; } /* Muda a direção do layout de cards para coluna; eles vão ficar empilhados um embaixo do outro */
+  .menu  { flex-direction: column; align-items: flex-start; } /* Empilha os itens do menu verticalmente e os alinha totalmente à esquerda */
+  h1     { font-size: 2rem; } /* Diminui o tamanho da fonte dos títulos principais (h1) para 2rem, para que não fiquem gigantes na tela do celular */
+} /* Fecha o bloco do Media Query */
